@@ -5,12 +5,13 @@
 ** Login   <loteri_a@epitech.net>
 ** 
 ** Started on  Thu Apr 24 09:52:31 2014 
-** Last update Thu Apr 24 09:56:44 2014 
+** Last update Thu Apr 24 10:23:07 2014 
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <errno.h>
 #include "../LIB/config.h"
 
 char    *buf_clean(char *str)

@@ -5,23 +5,22 @@
 ** Login   <loteri_a@epitech.net>
 ** 
 ** Started on  Wed Apr 23 19:26:49 2014 
-** Last update Thu Apr 24 09:58:07 2014 
+** Last update Thu Apr 24 10:56:08 2014 
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <errno.h>
 #include "../LIB/config.h"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **envp)
 {
-  char	cmd[CMD];
+  int   size;
+  char  buff[1024];
 
-  while (42)
-    {
-      buf_clean(cmd);
-      if (read(0, cmd, CMD) == -1)
-	exit(-1);
-      write(1, cmd, CMD);
-    }
+  write(1, "$> ", 3);
+  while ((size = read(0 , buff, 1023)) > 0)
+    write(1, "$> ", 3);
+ return 0;
 }
