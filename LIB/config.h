@@ -5,13 +5,13 @@
 ** Login   <loteri_a@epitech.net>
 ** 
 ** Started on  Wed Apr 23 19:25:15 2014 loteri_a
-** Last update Thu Apr 24 09:45:40 2014 
+** Last update Thu Apr 24 13:32:47 2014 
 */
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
 #define PROMPT "42sh> "
-#define CMD 256
+#define CMD 1024
 
 #endif
