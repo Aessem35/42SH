@@ -5,7 +5,7 @@
 ** Login   <loteri_a@epitech.net>
 ** 
 ** Started on  Wed Apr 23 19:26:49 2014 
-** Last update Mon May 12 12:57:46 2014 
+** Last update Tue May 20 14:29:45 2014 
 */
 
 #include <stdlib.h>
@@ -24,6 +24,7 @@ int	main(int ac, char **av, char **envp)
   while (42)
     while ((size = read(0 , buff, 1023)) > 0)
       {
+	exec(envp);
 	write(1, buff, 1023);
 	buf_clean(buff);
 	write(1, "$> ", 3);

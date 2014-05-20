@@ -5,13 +5,14 @@
 ## Login   <loteri_a@epitech.net>
 ## 
 ## Started on  Thu Apr 24 09:46:42 2014 
-## Last update Thu Apr 24 09:56:01 2014 
+## Last update Tue May 20 14:30:04 2014 
 ##
 
 NAME		=	42sh
 
 SRC		=	SRC/42sh.c \
-			SRC/buf_clean.c
+			SRC/buf_clean.c \
+			SRC/exec.c \
 
 OBJ		=	$(SRC:.c=.o)
 
