@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Thu May 22 17:42:17 2014 vassil_g
+** Last update Thu May 22 18:05:12 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -38,7 +38,7 @@ char			*append_str(char *str)
 }
 
 /*
-** la "norme" .... wtf
+** Awaiting better solution
 */
 t_lexic			*init_lex_def(t_lexic *lex)
 {
