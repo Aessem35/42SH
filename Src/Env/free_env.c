@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:34:23 2014 vassil_g
-** Last update Thu May 22 11:25:57 2014 vassil_g
+** Last update Fri May 23 15:49:51 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -28,7 +28,7 @@ void            free_env(t_envp *envp)
   while (envp->env[i])
     {
       free(envp->env[i]);
-      i++;
+      ++i;
     }
   free(envp->env);
 }

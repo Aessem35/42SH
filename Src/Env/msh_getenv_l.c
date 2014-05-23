@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:36:13 2014 vassil_g
-** Last update Fri May 23 10:36:14 2014 vassil_g
+** Last update Fri May 23 16:10:50 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -16,7 +16,7 @@ t_envl		*msh_getenv_l(t_envl *envl, char *name)
 {
   while (envl)
     {
-      if (strncmp(envl->name, name, strlen(name)))
+      if (strncmp(envl->name, name, strlen(name)) == 0)
 	return (envl);
       envl = envl->next;
     }

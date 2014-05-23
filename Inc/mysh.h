@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Fri May 23 11:07:28 2014 vassil_g
+** Last update Fri May 23 16:23:03 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -61,6 +61,7 @@ char                    *append_str_var(char *, char *, char);
 t_uint32		my_addr_strlen(char **);
 void			free_token(t_token *);
 void			free_sh_token(t_sh_token *);
+void			free_glob_def(t_glob_def *);
 t_token			*tokenize(t_struct_linker *, char *, char *, t_uint32);
 
 /*
@@ -80,6 +81,6 @@ t_mysh_er		msh_setenv(t_envp *, t_sh_token *);
 t_mysh_er		msh_unsetenv(t_envp *, t_sh_token *);
 t_mysh_er		msh_cd(t_envp *, t_sh_token *);
 void			msh_clear();
-char			*cd_dots(char *);
+char			*epure_path(char *);
 
 #endif /*!MYSH_H_*/

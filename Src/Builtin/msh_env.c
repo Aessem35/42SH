@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:06:53 2014 vassil_g
-** Last update Fri May 23 10:07:09 2014 vassil_g
+** Last update Fri May 23 16:22:11 2014 vassil_g
 */
 
 #include <unistd.h>
@@ -33,7 +33,7 @@ t_mysh_er                  msh_env(t_envp *envp, t_sh_token *token)
       write(1, envl->name, strlen(envl->name));
       envl = envl->next;
       if (!n_w)
-        write(1, "\n", 1);
+	write(1, "\n", 1);
     }
   if (n_w)
     write(1, "\n", 1);

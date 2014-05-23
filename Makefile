@@ -5,7 +5,7 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-## Last update Fri May 23 11:02:30 2014 vassil_g
+## Last update Fri May 23 16:23:56 2014 vassil_g
 ##
 
 NAME		= test
@@ -28,6 +28,7 @@ FILE		= $(MAIN)main.c \
 		$(COMMON)my_addr_strlen.c \
 		$(COMMON)tokenize.c \
 		$(COMMON)free_token.c \
+		$(COMMON)free_glob_def.c \
 		$(COMMON)append_str_var.c \
 		$(ENTRY)entry.c \
 		$(PARSER)new_sh_token.c \
@@ -50,7 +51,7 @@ FILE		= $(MAIN)main.c \
 		$(BUILTIN)msh_setenv.c \
 		$(BUILTIN)msh_unsetenv.c \
 		$(BUILTIN)msh_cd.c \
-		$(BUILTIN)cd_dots.c \
+		$(BUILTIN)epure_path.c \
 
 OBJ		= $(FILE:.c=.o)
 

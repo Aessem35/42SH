@@ -5,26 +5,13 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Fri May 23 11:41:28 2014 vassil_g
+** Last update Fri May 23 16:24:06 2014 vassil_g
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "mysh.h"
-
-void			free_glob_def(t_glob_def *def)
-{
-  t_uint32	n;
-
-  n = 0;
-  while (def->lexic[n].string)
-    {
-      free(def->lexic[n].string);
-      ++n;
-    }
-  free(def->lexic);
-}
 
 /*
 ** Awaiting better solution
@@ -65,6 +52,7 @@ t_glob_def		*init_def(t_glob_def *glob_def)
     return (NULL);
   /*  if (!(glob_def->param = init_param_def(param_def)))
       return (NULL); */
+  free_glob_def(glob_def);
   return (glob_def);
 }
 
@@ -85,6 +73,5 @@ void			mysh(char **env)
 	process_entry(token, &envp);
       free_sh_token(token);
     }
-  free_env(&envp);
   free_glob_def(&def);
 }
