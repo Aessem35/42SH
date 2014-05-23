@@ -5,11 +5,11 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:45:45 2014 vassil_g
-** Last update Sun Mar  9 22:55:39 2014 vassil_g
+** Last update Fri May 23 11:02:59 2014 vassil_g
 */
 
 #include <stdlib.h>
-#include "my.h"
+#include <string.h>
 
 unsigned int	step_1(char *str, unsigned int i)
 {
@@ -41,14 +41,14 @@ char            *cd_dots(char *str)
 
   i = 0;
   j = 0;
-  if (!(tmp = malloc(my_strlen(str) + 1)))
+  if (!(tmp = malloc(strlen(str) + 1)))
     return (NULL);
   while (str[i])
     {
       tmp[i] = str[i];
       ++i;
     }
-  i = my_strlen(str);
+  i = strlen(str);
   i = step_1(str, i);
   while (str[j])
     {

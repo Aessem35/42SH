@@ -1,17 +1,17 @@
 /*
-** msh_cd.c for Minishell1 in /home/vassil_g/Minishell1/Source/Builtin
+** msh_cd.c for  in /home/vassil_g/rendu/42sh/Public/42SH/Vassil_g/Src/Builtin
 ** 
 ** Made by vassil_g
 ** Login   <vassil_g@epitech.net>
 ** 
-** Started on  Mon Feb  3 12:02:14 2014 vassil_g
-** Last update Sun Mar  9 22:46:11 2014 vassil_g
+** Started on  Fri May 23 10:54:04 2014 vassil_g
+** Last update Fri May 23 11:04:47 2014 vassil_g
 */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "my.h"
-#include "my_msh.h"
+#include <string.h>
+#include "mysh.h"
 
 t_mysh_er		cd_setenv(t_envp *envp, char *pwd)
 {
@@ -23,12 +23,12 @@ t_mysh_er		cd_setenv(t_envp *envp, char *pwd)
   if (!(tmp = msh_getenv_v(envp->envl, "PWD")) || !*tmp)
     return (BI_CD_NOPWD);
   free(envl->name);
-  if (!(envl->name = my_env_strcat("OLDPWD", tmp, '=')))
+  if (!(envl->name = append_str_var("OLDPWD", tmp, '=')))
     return (MA_ERROR);
   envp->env[envl->env_nb] = envl->name;
   envl = msh_getenv_l(envp->envl, "PWD");
   free(envl->name);
-  if (!(envl->name = my_env_strcat("PWD", pwd, '=')))
+  if (!(envl->name = append_str_var("PWD", pwd, '=')))
     return (MA_ERROR);
   envp->env[envl->env_nb] = envl->name;
   free(pwd);
@@ -43,7 +43,8 @@ t_mysh_er		cd_gohome(t_envp *envp)
     return (BI_CD_NOHOME);
   if (chdir(tmp) == -1)
     return (BI_CD_INVAHOME);
-  tmp = my_strdub(tmp);
+  if (!(tmp = strdup(tmp)))
+    return (MA_ERROR);
   return (cd_setenv(envp, tmp));
 }
 
@@ -55,44 +56,45 @@ t_mysh_er		cd_rewind(t_envp *envp)
     return (BI_CD_NOOLDPWD);
   else if (chdir(tmp) == -1)
     return (BI_CD_INVAOLDPWD);
-  tmp = my_strdub(tmp);
+  if (!(tmp = strdup(tmp)))
+    return (MA_ERROR);
   return (cd_setenv(envp, tmp));
 }
 
-t_mysh_er		init_pwd(t_envp *envp, t_usr_entry *entry, char **pwd)
+t_mysh_er		init_pwd(t_envp *envp, t_sh_token *token, char **pwd)
 {
-  if (entry->arg[1][0] == '/')
+  if (*(token->str) == '/')
     {
-      if (!(*pwd = my_env_strcat(entry->arg[1], "", 0)))
+      if (!(*pwd = strdup(token->str)))
 	return (MA_ERROR);
     }
-  else if (entry->arg[1][0] == '~')
+  else if (*(token->str) == '~')
     {
       if (!(*pwd = msh_getenv_v(envp->envl, "HOME")))
 	return (BI_CD_NOHOME);
-      else if (!(*pwd = my_env_strcat(*(pwd) + 1, entry->arg[1], '/')))
+      else if (!(*pwd = append_str_var(*(pwd) + 1, token->str, '/')))
 	return (MA_ERROR);
     }
   else
     {
       if (!(*pwd = msh_getenv_v(envp->envl, "PWD")))
 	return (BI_CD_NOPWD);
-      else if (!(*pwd = my_env_strcat(*pwd, entry->arg[1], '/')))
+      else if (!(*pwd = append_str_var(*pwd, token->str, '/')))
 	return (MA_ERROR);
     }
   return (SUCCES);
 }
 
-t_mysh_er		msh_cd(t_envp *envp, t_usr_entry *entry)
+t_mysh_er		msh_cd(t_envp *envp, t_sh_token *token)
 {
   char		*pwd;
   t_mysh_er	er;
 
-  if (!entry->arg[1])
+  if (token->up_size < 2)
     return (cd_gohome(envp));
-  else if (entry->arg[1][0] == '-' && my_strlen(entry->arg[1]) == 1)
+  else if (strcmp(token->up->next->str, "-") == 0)
     return (cd_rewind(envp));
-  if ((er = init_pwd(envp, entry, &pwd)) > 0)
+  if ((er = init_pwd(envp, token->up->next, &pwd)) > 0)
     return (er);
   if (chdir(pwd) == -1)
     {

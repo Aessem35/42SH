@@ -5,7 +5,7 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-## Last update Fri May 23 10:37:52 2014 vassil_g
+## Last update Fri May 23 11:02:30 2014 vassil_g
 ##
 
 NAME		= test
@@ -48,6 +48,9 @@ FILE		= $(MAIN)main.c \
 		$(BUILTIN)msh_clear.c \
 		$(BUILTIN)msh_getenv.c \
 		$(BUILTIN)msh_setenv.c \
+		$(BUILTIN)msh_unsetenv.c \
+		$(BUILTIN)msh_cd.c \
+		$(BUILTIN)cd_dots.c \
 
 OBJ		= $(FILE:.c=.o)
 

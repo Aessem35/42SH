@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Fri May 23 10:38:24 2014 vassil_g
+** Last update Fri May 23 11:04:33 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -72,6 +72,9 @@ t_mysh_er		msh_env(t_envp *, t_sh_token *);
 t_mysh_er		msh_exit(t_envp *, t_sh_token *);
 t_mysh_er		msh_getenv(t_envp *, t_sh_token *);
 t_mysh_er		msh_setenv(t_envp *, t_sh_token *);
+t_mysh_er		msh_unsetenv(t_envp *, t_sh_token *);
+t_mysh_er		msh_cd(t_envp *, t_sh_token *);
 void			msh_clear();
+char			*cd_dots(char *);
 
 #endif /*!MYSH_H_*/
