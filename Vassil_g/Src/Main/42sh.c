@@ -5,10 +5,11 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Fri May 23 09:33:49 2014 vassil_g
+** Last update Fri May 23 11:08:03 2014 vassil_g
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "mysh.h"
 
@@ -66,7 +67,7 @@ t_lexic			*init_lex_def(t_lexic *lex)
 t_glob_def		*init_def(t_glob_def *glob_def)
 {
   t_lexic	*lex_def;
-  t_lexic	**param_def;
+  //  t_lexic	**param_def;
 
   if (!(lex_def = malloc((sizeof (t_lexic )) * (LEX_NB + 1))))
     return (NULL);

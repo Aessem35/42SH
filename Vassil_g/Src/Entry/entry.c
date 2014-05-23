@@ -5,9 +5,11 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 15:36:14 2014 vassil_g
-** Last update Thu May 22 17:05:06 2014 vassil_g
+** Last update Fri May 23 11:08:32 2014 vassil_g
 */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "parsing.h"
 
 char			*entry()

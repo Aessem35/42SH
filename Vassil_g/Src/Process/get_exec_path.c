@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:42:49 2014 vassil_g
-** Last update Fri May 23 10:29:47 2014 vassil_g
+** Last update Fri May 23 11:09:57 2014 vassil_g
 */
 
 #include <sys/types.h>
@@ -14,27 +14,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "mysh.h"
-
-/*
-t_mysh_er			check_builtin(char *cmd)
-{
-  if (my_str_cpr(cmd, "env"))
-    return (BUILTIN_ENV);
-  else if (my_str_cpr(cmd, "cd"))
-    return (BUILTIN_CD);
-  else if (my_str_cpr(cmd, "setenv"))
-    return (BUILTIN_SETENV);
-  else if (my_str_cpr(cmd, "unsetenv"))
-    return (BUILTIN_UNSETENV);
-  else if (my_str_cpr(cmd, "clear"))
-    return (BUILTIN_CLEAR);
-  else if (my_str_cpr(cmd, "exit"))
-    return (BUILTIN_EXIT);
-  else if (my_str_cpr(cmd, "getenv"))
-    return (BUILTIN_GETENV);
-  return (SUCCES);
-}
-*/
 
 char	       		*check_path(t_token *path_list, char *cmd)
 {
@@ -75,10 +54,6 @@ t_mysh_er		check_exec(t_envp *envp, t_sh_token *entry)
 
 t_mysh_er	       	get_exec_path(t_envp *envp, t_sh_token *token)
 {
-  t_mysh_er	builtin;
-
-  /*  if ((builtin = check_builtin(entry->cmd)) > 0) Nothing to do there
-      return (builtin); */
   if (!token || !token->up || !token->up->str)
     return (EXEC_NF);
   return (check_exec(envp, token));

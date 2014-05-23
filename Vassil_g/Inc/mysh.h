@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Fri May 23 11:04:33 2014 vassil_g
+** Last update Fri May 23 11:07:28 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -39,7 +39,12 @@ struct s_token
 };
 
 /*
-** ENVIRONMENT
+** SRC/MAIN
+*/
+void			mysh(char **);
+
+/*
+** SRC/ENV
 */
 t_mysh_er               msh_init_env(t_envp *, char **);
 t_envl                  *msh_getenv_l(t_envl *, char *);

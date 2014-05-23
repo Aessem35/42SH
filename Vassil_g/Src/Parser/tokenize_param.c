@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 15:16:17 2014 vassil_g
-** Last update Thu May 22 15:58:12 2014 vassil_g
+** Last update Fri May 23 11:09:08 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -58,7 +58,8 @@ t_uint32	tokenize_param(t_struct_linker *linker, t_glob_def *def, char *str, cha
 		return (0);
 	      beg = NULL;
 	    }
-	  i += case_magic(linker, def, &str[++i]);
+	  i += case_magic(linker, def, &str[i]);
+	  ++i;
 	  continue;
 	}
       j = get_sep(sep, str[i]);

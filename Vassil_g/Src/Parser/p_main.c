@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 11:14:48 2014 vassil_g
-** Last update Thu May 22 17:34:27 2014 vassil_g
+** Last update Fri May 23 11:08:49 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -19,7 +19,6 @@ void			params(t_sh_token *token, t_glob_def *def)
     {
       init_linker(&linker);
       tokenize_param(&linker, def, token->str, " \t");
-      printf("SIZE %u\n", linker.size);
       token->up_size = linker.size;
       token->up = (t_sh_token *)linker.first;
       token = token->next;
