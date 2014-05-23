@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Fri May 23 11:08:03 2014 vassil_g
+** Last update Fri May 23 11:30:57 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -26,36 +26,24 @@ void			free_glob_def(t_glob_def *def)
   free(def->lexic);
 }
 
-char			*append_str(char *str)
-{
-  t_uint32	len;
-  char		*ret;
-
-  len = strlen(str) + 1;
-  if (!(ret = malloc((sizeof (char)) * len)))
-    return (NULL);
-  memcpy(ret, str, len);
-  return (ret);
-}
-
 /*
 ** Awaiting better solution
 */
 t_lexic			*init_lex_def(t_lexic *lex)
 {
-  if (!(lex[0].string = append_str(P_PIPE_S)))
+  if (!(lex[0].string = strdup(P_PIPE_S)))
     return (NULL);
   lex[0].flag = P_PIPE_F;
-  if (!(lex[1].string = append_str(P_SDIR_S)))
+  if (!(lex[1].string = strdup(P_SDIR_S)))
     return (NULL);
   lex[1].flag = P_SDIR_F;
-  if (!(lex[2].string = append_str(P_DDIR_S)))
+  if (!(lex[2].string = strdup(P_DDIR_S)))
     return (NULL);
   lex[2].flag = P_DDIR_F;
-  if (!(lex[3].string = append_str(P_SDIL_S)))
+  if (!(lex[3].string = strdup(P_SDIL_S)))
     return (NULL);
   lex[3].flag = P_SDIL_F;
-  if (!(lex[4].string = append_str(P_OR_S)))
+  if (!(lex[4].string = strdup(P_OR_S)))
     return (NULL);
   lex[4].flag = P_OR_F;
   lex[LEX_NB].string = NULL;
