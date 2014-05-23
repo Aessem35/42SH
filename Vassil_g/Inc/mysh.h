@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Thu May 22 17:00:34 2014 vassil_g
+** Last update Fri May 23 10:38:24 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -39,33 +39,23 @@ struct s_token
 };
 
 /*
-t_mysh_er               msh_builtin(t_uint32, t_envp *envp, t_usr_entry *entry);
-void                    msh_clear();
-t_mysh_er               msh_cd(t_envp *, t_token *);       );
-t_mysh_er               msh_env(t_envp *, t_usr_entry *);
-t_mysh_er               msh_setenv(t_envp *, t_usr_entry *);
-t_mysh_er               msh_exit(t_envp *, t_usr_entry *);
-t_mysh_er               msh_unsetenv(t_envp *, t_usr_entry *);
-t_mysh_er               msh_getenv(t_envp *, t_usr_entry *);
-*/
-
-/*
 ** ENVIRONMENT
 */
 t_mysh_er               msh_init_env(t_envp *, char **);
 t_envl                  *msh_getenv_l(t_envl *, char *);
 char                    *msh_getenv_v(t_envl *, char *);
+t_mysh_er		add_in_list(t_envp *, char *, t_uint32);
 void                    free_env(t_envp *);
-
 t_sh_token		*parsed_entry(t_glob_def *);
 void			print_token(t_sh_token *);
-void			free_sh_token(t_sh_token *);
 
 /*
 ** SRC/COMMON
 */
+char                    *append_str_var(char *, char *, char);
 t_uint32		my_addr_strlen(char **);
 void			free_token(t_token *);
+void			free_sh_token(t_sh_token *);
 t_token			*tokenize(t_struct_linker *, char *, char *, t_uint32);
 
 /*
@@ -74,5 +64,14 @@ t_token			*tokenize(t_struct_linker *, char *, char *, t_uint32);
 t_mysh_er		process_entry(t_sh_token *, t_envp *);
 t_mysh_er		get_exec_path(t_envp *, t_sh_token *);
 t_mysh_er		msh_exec(t_sh_token *, t_envp *);
+
+/*
+** SRC/BUILTIN
+*/
+t_mysh_er		msh_env(t_envp *, t_sh_token *);
+t_mysh_er		msh_exit(t_envp *, t_sh_token *);
+t_mysh_er		msh_getenv(t_envp *, t_sh_token *);
+t_mysh_er		msh_setenv(t_envp *, t_sh_token *);
+void			msh_clear();
 
 #endif /*!MYSH_H_*/

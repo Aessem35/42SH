@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Thu May 22 18:05:12 2014 vassil_g
+** Last update Fri May 23 09:33:49 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -95,7 +95,6 @@ void			mysh(char **env)
       if (process_entry(token, &envp))
 	printf("Something went wrong\n");
       free_sh_token(token);
-      break;
     }
   free_env(&envp);
   free_glob_def(&def);

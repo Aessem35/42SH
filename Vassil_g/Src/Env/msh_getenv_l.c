@@ -1,21 +1,22 @@
 /*
-** msh_getenv.c for Minishell1 in /home/vassil_g/Minishell1/Source
+** msh_getenv_l.c for  in /home/vassil_g/rendu/42sh/Public/42SH/Vassil_g/Src
 ** 
 ** Made by vassil_g
 ** Login   <vassil_g@epitech.net>
 ** 
-** Started on  Fri Feb  7 17:57:27 2014 vassil_g
-** Last update Sat Feb  8 16:15:43 2014 vassil_g
+** Started on  Fri May 23 10:36:13 2014 vassil_g
+** Last update Fri May 23 10:36:14 2014 vassil_g
 */
 
 #include <stdlib.h>
-#include "my_msh.h"
+#include <string.h>
+#include "mysh.h"
 
 t_envl		*msh_getenv_l(t_envl *envl, char *name)
 {
   while (envl)
     {
-      if (my_env_strcpr_name(envl->name, name))
+      if (strncmp(envl->name, name, strlen(name)))
 	return (envl);
       envl = envl->next;
     }

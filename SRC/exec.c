@@ -5,7 +5,7 @@
 ** Login   <loteri_a@epitech.net>
 ** 
 ** Started on  Mon Apr 28 16:59:51 2014 loteri_a
-** Last update Thu May 22 15:54:44 2014 loteri_a
+** Last update Fri May 23 09:32:46 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -19,10 +19,9 @@ int	exec(char *command, char **envp)
 
   int	pid;
   int	i;
-  char *const cmd[2][2] = {{"ls"}, {"-l"}};
+  char *cmd[] = {{"ls"}, {"-l"}};
   char	*dest;
 
-  dest = "/bin/";
   i = strlen(dest) + strlen(command);
   dest = malloc(sizeof(*dest *  i));
   if (dest == NULL)
@@ -30,10 +29,11 @@ int	exec(char *command, char **envp)
   dest = strcat(dest, command);
   printf("dest : %s\n" , dest);
   pid = fork();
-  if (pid)
+  if (pid == 0)
     {
       execve("/bin/ls", cmd, envp);
     }
-  wait(pid);
+  else
+    wait(pid);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:42:49 2014 vassil_g
-** Last update Thu May 22 17:12:35 2014 vassil_g
+** Last update Fri May 23 10:29:47 2014 vassil_g
 */
 
 #include <sys/types.h>
@@ -36,22 +36,6 @@ t_mysh_er			check_builtin(char *cmd)
 }
 */
 
-char			*make_path(char *cmd, char *path)
-{
-  char		*ret;
-  t_uint32	len_cmd;
-  t_uint32	len_path;
-
-  len_cmd = strlen(cmd);
-  len_path = strlen(path);
-  if (!(ret = malloc(sizeof (char) * (len_cmd + len_path + 2))))
-    return (NULL);
-  strncpy(ret, path, len_path);
-  ret[len_path] = '/';
-  strncpy(ret + (len_path + 1), cmd, len_cmd + 1);
-  return (ret);
-}
-
 char	       		*check_path(t_token *path_list, char *cmd)
 {
   struct stat	buff;
@@ -59,8 +43,8 @@ char	       		*check_path(t_token *path_list, char *cmd)
 
   while (path_list)
     {
-      test = make_path(cmd, path_list->str);
-        if (stat(test, &buff) == 0)
+      test = append_str_var(path_list->str, cmd, '/');
+      if (stat(test, &buff) == 0)
 	return (test);
       free(test);
       path_list = path_list->next;
@@ -93,7 +77,7 @@ t_mysh_er	       	get_exec_path(t_envp *envp, t_sh_token *token)
 {
   t_mysh_er	builtin;
 
-  /*  if ((builtin = check_builtin(entry->cmd)) > 0)
+  /*  if ((builtin = check_builtin(entry->cmd)) > 0) Nothing to do there
       return (builtin); */
   if (!token || !token->up || !token->up->str)
     return (EXEC_NF);
