@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:53:17 2014 vassil_g
-** Last update Fri May 23 11:29:25 2014 vassil_g
+** Last update Fri May 23 11:40:56 2014 vassil_g
 */
 
 #include <string.h>

@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Fri May 23 11:30:57 2014 vassil_g
+** Last update Fri May 23 11:41:28 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -80,9 +80,9 @@ void			mysh(char **env)
   while (42)
     {
       token = parsed_entry(&def);
-      print_token(token);
-      if (process_entry(token, &envp))
-	printf("Something went wrong\n");
+      //      print_token(token);
+      if (token && token->up)
+	process_entry(token, &envp);
       free_sh_token(token);
     }
   free_env(&envp);
