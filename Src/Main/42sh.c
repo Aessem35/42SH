@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Sun May 25 20:09:47 2014 vassil_g
+** Last update Sun May 25 20:24:35 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -39,11 +39,8 @@ t_lexic			*init_lex_def(t_lexic *lex)
   if (!(lex[7].string = strdup(P_SCOL_S)))
     return (NULL);
   lex[7].flag = P_SCOL_F;
-  lex[LEX_NB].string = NULL;
-  lex[LEX_NB].flag = 0;
   return (lex);
 }
-
 
 t_glob_def		*init_def(t_glob_def *glob_def)
 {
@@ -53,6 +50,8 @@ t_glob_def		*init_def(t_glob_def *glob_def)
     return (NULL);
   if (!(glob_def->lexic = init_lex_def(lex_def)))
     return (NULL);
+  lex_def[LEX_NB].string = NULL;
+  lex_def[LEX_NB].flag = 0;
   free_glob_def(glob_def);
   return (glob_def);
 }

@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Sun May 25 18:52:23 2014 vassil_g
+** Last update Sun May 25 20:35:34 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -13,6 +13,14 @@
 
 #include "msh_er.h"
 #include "parsing.h"
+
+#define BUILTIN_ENV	(0)
+#define BUILTIN_EXIT	(1)
+#define BUILTIN_GETENV	(2)
+#define BUILTIN_SETENV	(3)
+#define BUILTIN_CD	(4)
+#define BUILTIN_UNSETENV (5)
+#define BUILTIN_CLEAR	(6)
 
 typedef t_uint32	t_mysh_er;
 
@@ -76,7 +84,7 @@ t_token			*tokenize(t_struct_linker *, char *, char *, t_uint32);
 /*
 ** SRC/PROCESS
 */
-t_mysh_er		process_entry(t_sh_token *, t_envp *);
+void			process_entry(t_sh_token *, t_envp *);
 t_mysh_er		get_exec_path(t_envp *, t_sh_token *);
 t_mysh_er		msh_exec(t_struct_linker *, t_sh_token *, t_envp *);
 t_uint32		test_job(t_struct_linker *, t_uint32);
@@ -84,14 +92,8 @@ t_mysh_er		add_to_job_list(t_struct_linker *, int);
 t_mysh_er		msh_builtin(t_struct_linker *, t_int32, t_sh_token *, t_envp *);
 void			free_jobs(t_job *);
 t_int32			check_if_builtin(char *);
+void			msh_error(t_mysh_er, t_sh_token *);
 
-#define BUILTIN_ENV	(0)
-#define BUILTIN_EXIT	(1)
-#define BUILTIN_GETENV	(2)
-#define BUILTIN_SETENV	(3)
-#define BUILTIN_CD	(4)
-#define BUILTIN_UNSETENV (5)
-#define BUILTIN_CLEAR	(6)
 /*
 ** SRC/BUILTIN
 */

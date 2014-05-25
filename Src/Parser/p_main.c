@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 11:14:48 2014 vassil_g
-** Last update Fri May 23 11:08:49 2014 vassil_g
+** Last update Sun May 25 21:08:24 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -27,9 +27,11 @@ void			params(t_sh_token *token, t_glob_def *def)
 
 t_sh_token		*parser(char *str, t_glob_def *def, char end)
 {
-  t_sh_token	*token;
+  t_struct_linker	linker;
+  t_sh_token		*token;
 
-  if (!(token = tokenize_lex(str, def, end)))
+  init_linker(&linker);
+  if (!(token = tokenize_lex(&linker, str, def, end)))
     return (token);
   params(token, def);
   return (token);

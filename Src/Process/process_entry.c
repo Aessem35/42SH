@@ -5,13 +5,13 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:53:17 2014 vassil_g
-** Last update Sun May 25 20:13:29 2014 vassil_g
+** Last update Sun May 25 20:31:33 2014 vassil_g
 */
 
 #include <string.h>
 #include "mysh.h"
 
-t_mysh_er		process_entry(t_sh_token *token, t_envp *envp)
+void			process_entry(t_sh_token *token, t_envp *envp)
 {
   t_int32		ret;
   t_mysh_er		er;
@@ -38,5 +38,4 @@ t_mysh_er		process_entry(t_sh_token *token, t_envp *envp)
       token = token->next;
     }
   free_jobs((t_job *)job_list.first);
-  return (SUCCES);
 }

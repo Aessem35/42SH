@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:42:49 2014 vassil_g
-** Last update Fri May 23 11:09:57 2014 vassil_g
+** Last update Sun May 25 20:29:55 2014 vassil_g
 */
 
 #include <sys/types.h>
@@ -37,7 +37,7 @@ t_mysh_er		check_exec(t_envp *envp, t_sh_token *entry)
   char		*path;
   char		*tmp;
 
-  if (!(path = msh_getenv_v(envp->envl, "PATH"))) //|| !*path) ??
+  if (!(path = msh_getenv_v(envp->envl, "PATH")))
     return (EXEC_NOPATH);
   if (!(path_list = tokenize(NULL, path, ":", SIMPLE | END)))
     return (MA_ERROR);

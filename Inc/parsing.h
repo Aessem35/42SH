@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 11:00:45 2014 vassil_g
-** Last update Sun May 25 17:07:33 2014 vassil_g
+** Last update Sun May 25 21:09:02 2014 vassil_g
 */
 
 #ifndef PARSING_H_
@@ -91,7 +91,7 @@ struct	s_struct_linker
 
 t_uint32		insert_struct(t_struct_linker *, t_any_struct *, t_uint32 mode);
 t_sh_token		*new_sh_token(char *, char *, t_uint32);
-t_sh_token		*tokenize_lex(char *, t_glob_def *, char);
+t_sh_token		*tokenize_lex(t_struct_linker *, char *, t_glob_def *, char);
 t_uint32		tokenize_param(t_struct_linker *, t_glob_def *, char *, char *);
 char			*entry();
 t_sh_token		*parser(char *, t_glob_def *, char );

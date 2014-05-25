@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 15:16:17 2014 vassil_g
-** Last update Fri May 23 11:09:08 2014 vassil_g
+** Last update Sun May 25 21:06:51 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -22,6 +22,14 @@ t_uint32        get_sep(char *sep, char str)
   return (j);
 }
 
+char		*insert(t_struct_linker *linker, char *beg, char *end)
+{
+  if (!(insert_struct(linker, (t_any_struct *)new_sh_token(beg, end, 0),
+		      SIMPLE | END)))
+    return (end);
+  return (NULL);
+}
+
 t_uint32	case_magic(t_struct_linker *linker, t_glob_def *def, char *str)
 {
   t_uint32	len;
@@ -32,7 +40,7 @@ t_uint32	case_magic(t_struct_linker *linker, t_glob_def *def, char *str)
     ++len;
   if (!str[len])
     return (0);
-  if (!(insert_struct(linker, (t_any_struct *)new_sh_token(str, &(str[len]), 0), SIMPLE | END)))
+  if ((insert(linker, str, &(str[len]))))
     return (0);
   tmp = (t_sh_token *)linker->last;
   tmp->up = parser(str, def, P_MAGIC_C);
@@ -40,7 +48,8 @@ t_uint32	case_magic(t_struct_linker *linker, t_glob_def *def, char *str)
   return (len + 1);
 }
 
-t_uint32	tokenize_param(t_struct_linker *linker, t_glob_def *def, char *str, char *sep)
+t_uint32	tokenize_param(t_struct_linker *linker,
+			       t_glob_def *def, char *str, char *sep)
 {
   char          *beg;
   t_uint32      j;
@@ -53,28 +62,18 @@ t_uint32	tokenize_param(t_struct_linker *linker, t_glob_def *def, char *str, cha
       if (str[i] == P_MAGIC_C)
 	{
 	  if (beg)
-	    {
-	      if (!(insert_struct(linker, (t_any_struct *)new_sh_token(beg, &(str[i - 1]), 0), SIMPLE | END)))
-		return (0);
-	      beg = NULL;
-	    }
-	  i += case_magic(linker, def, &str[i]);
-	  ++i;
+	    beg = insert(linker, beg, &(str[i - 1]));
+	  i += (case_magic(linker, def, &str[i])) + 1;
 	  continue;
 	}
       j = get_sep(sep, str[i]);
       if (beg && sep[j])
-	{
-	  if (!(insert_struct(linker, (t_any_struct *)new_sh_token(beg, &(str[i]), 0), SIMPLE | END)))
-	    return (0);
-	  beg = NULL;
-	}
+	beg = (insert(linker, beg, &(str[i])));
       else if (!(sep[j]) && !beg)
 	beg = &(str[i]);
       ++i;
     }
   if (beg)
-    if (!(insert_struct(linker, (t_any_struct *)new_sh_token(beg, &(str[i]), 0), SIMPLE | END)))
-      return (0);
+    insert(linker, beg, &(str[i]));
   return (1);
 }

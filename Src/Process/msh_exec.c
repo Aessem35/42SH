@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:59:08 2014 vassil_g
-** Last update Sun May 25 18:19:05 2014 vassil_g
+** Last update Sun May 25 20:30:31 2014 vassil_g
 */
 
 #include <unistd.h>
@@ -56,7 +56,8 @@ void	      	msh_c_prcs(t_sh_token *token, t_envp *envp)
   exit(EXIT_FAILURE);
 }
 
-t_mysh_er	msh_exec(t_struct_linker *job_list, t_sh_token *entry, t_envp *envp)
+t_mysh_er	msh_exec(t_struct_linker *job_list,
+			 t_sh_token *entry, t_envp *envp)
 {
   pid_t		fork_r;
 
