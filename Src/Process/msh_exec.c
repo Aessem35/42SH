@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:59:08 2014 vassil_g
-** Last update Thu May 22 16:59:10 2014 vassil_g
+** Last update Sun May 25 18:19:05 2014 vassil_g
 */
 
 #include <unistd.h>
@@ -14,17 +14,20 @@
 #include <sys/wait.h>
 #include "mysh.h"
 
-t_mysh_er		msh_p_prcs(pid_t pid)
+t_mysh_er	msh_p_prcs(t_struct_linker *job_list, pid_t pid)
 {
   int		signal;
 
-  while (waitpid(pid, &signal, 0) != pid);
-   if (signal == 256)
+  if (waitpid(pid, &signal, 0) != pid)
+    return (EXEC_NF);
+  if (add_to_job_list(job_list, signal))
+    return (MA_ERROR);
+  if (signal == 256)
     return (EXEC_NF);
   return (SUCCES);
 }
 
-char			**make_arg_tab(t_sh_token *token, t_uint32 size)
+char   		**make_arg_tab(t_sh_token *token, t_uint32 size)
 {
   char		**ret;
   t_uint32	n;
@@ -42,7 +45,7 @@ char			**make_arg_tab(t_sh_token *token, t_uint32 size)
   return (ret);
 }
 
-void			msh_c_prcs(t_sh_token *token, t_envp *envp)
+void	      	msh_c_prcs(t_sh_token *token, t_envp *envp)
 {
   char		**arg;
 
@@ -53,7 +56,7 @@ void			msh_c_prcs(t_sh_token *token, t_envp *envp)
   exit(EXIT_FAILURE);
 }
 
-t_mysh_er		msh_exec(t_sh_token *entry, t_envp *envp)
+t_mysh_er	msh_exec(t_struct_linker *job_list, t_sh_token *entry, t_envp *envp)
 {
   pid_t		fork_r;
 
@@ -61,5 +64,5 @@ t_mysh_er		msh_exec(t_sh_token *entry, t_envp *envp)
     msh_c_prcs(entry, envp);
   else if (fork_r == -1)
     return (EXEC_FORK_FAILURE);
-  return (msh_p_prcs(fork_r));
+  return (msh_p_prcs(job_list, fork_r));
 }

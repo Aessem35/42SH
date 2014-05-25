@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 11:00:45 2014 vassil_g
-** Last update Thu May 22 15:54:53 2014 vassil_g
+** Last update Sun May 25 17:07:33 2014 vassil_g
 */
 
 #ifndef PARSING_H_
@@ -25,14 +25,26 @@
 #define P_SDIL_F	(1 << 3)
 #define P_SDIL_S	("<")
 
-#define P_OR_F		(1 << 4)
+#define P_DDIL_F	(1 << 4)
+#define P_DDIL_S	("<<")
+
+#define P_OR_F		(1 << 5)
 #define	P_OR_S		("||")
 
-#define LEX_NB		5
+#define P_AND_F		(1 << 6)
+#define P_AND_S		("&&")
 
-#define	P_MAGIC_F	(1 << 5)
+#define P_SCOL_F	(1 << 7)
+#define	P_SCOL_S	(";")
+
+#define LEX_NB		8
+
+#define P_REDIRECTION_L	(P_SDIR_F | P_DDIR_F | P_SDIL_F | P_DDIL_F)
+#define P_SEPARATOR_L	(P_OR_F | P_AND_F | P_SCOL_F)
+
+#define	P_MAGIC_F	(1 << 8)
 #define P_MAGIC_C	('`')
-#define P_QUOT		('"')
+#define P_QUOT_C	('"')
 
 typedef	struct	s_lexic
 {
@@ -85,6 +97,8 @@ char			*entry();
 t_sh_token		*parser(char *, t_glob_def *, char );
 char			*get_next_line(const int);
 void			init_linker(t_struct_linker *);
+char                    *getnext_c(char *str, char c);
+
 
 
 #endif /*!PARSING_H_*/

@@ -5,29 +5,31 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Mon Feb  3 11:52:09 2014 vassil_g
-** Last update Sun Mar  9 21:39:58 2014 vassil_g
+** Last update Sun May 25 19:05:30 2014 vassil_g
 */
 
-#include "my_msh.h"
+#include "mysh.h"
 
-void	     init_builtin(t_mysh_er (**func)(t_envp *envp, t_usr_entry *entry))
+void	     init_builtin(t_mysh_er (**func)(t_envp *envp, t_sh_token *token))
 {
-  func[BUILTIN_ENV - 1] = &msh_env;
-  func[BUILTIN_SETENV - 1] = &msh_setenv;
-  func[BUILTIN_UNSETENV - 1] = &msh_unsetenv;
-  func[BUILTIN_CD - 1] = &msh_cd;
-  func[BUILTIN_EXIT - 1] = &msh_exit;
-  func[BUILTIN_GETENV -1] = &msh_getenv;
+  func[BUILTIN_ENV] = &msh_env;
+  func[BUILTIN_SETENV] = &msh_setenv;
+  func[BUILTIN_UNSETENV] = &msh_unsetenv;
+  func[BUILTIN_CD] = &msh_cd;
+  func[BUILTIN_EXIT] = &msh_exit;
+  func[BUILTIN_GETENV] = &msh_getenv;
 }
 
-t_mysh_er    msh_builtin(t_mysh_er w_builtin, t_envp *envp, t_usr_entry *entry)
+t_mysh_er    msh_builtin(t_struct_linker *job_list, t_int32 w_builtin,
+			 t_sh_token *token, t_envp *envp)
 {
-  t_mysh_er	(*func[6])(t_envp *envp, t_usr_entry *entry);
+  t_mysh_er	(*func[6])(t_envp *envp, t_sh_token *token);
+  t_uint32	ret;
 
   init_builtin(func);
   if (w_builtin == BUILTIN_CLEAR)
     msh_clear();
   else
-    return (func[w_builtin - 1](envp, entry));
-  return (SUCCES);
+    add_to_job_list(job_list, ret = func[w_builtin](envp, token));
+  return (ret);
 }

@@ -5,10 +5,10 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-## Last update Fri May 23 16:23:56 2014 vassil_g
+## Last update Sun May 25 20:14:09 2014 vassil_g
 ##
 
-NAME		= test
+NAME		= 42sh
 
 SRC		= Src/
 PARSER		= $(SRC)Parser/
@@ -21,6 +21,7 @@ BUILTIN		= $(SRC)Builtin/
 
 FILE		= $(MAIN)main.c \
 		$(MAIN)42sh.c \
+		$(MAIN)msh_error.c \
 		$(SRC)print_token.c \
 		$(COMMON)free_sh_token.c \
 		$(COMMON)init_linker.c \
@@ -35,6 +36,7 @@ FILE		= $(MAIN)main.c \
 		$(PARSER)p_main.c \
 		$(PARSER)tokenize_lex.c \
 		$(PARSER)tokenize_param.c \
+		$(PARSER)getnext_c.c \
 		$(PARSER)get_next_line.c \
 		$(ENV)msh_init_env.c \
 		$(ENV)free_env.c \
@@ -44,6 +46,11 @@ FILE		= $(MAIN)main.c \
 		$(PROCESS)get_exec_path.c \
 		$(PROCESS)msh_exec.c \
 		$(PROCESS)process_entry.c \
+		$(PROCESS)msh_builtin.c \
+		$(PROCESS)test_job.c \
+		$(PROCESS)add_to_job_l.c \
+		$(PROCESS)free_jobs.c \
+		$(PROCESS)check_if_builtin.c \
 		$(BUILTIN)msh_env.c \
 		$(BUILTIN)msh_exit.c \
 		$(BUILTIN)msh_clear.c \
