@@ -5,13 +5,14 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 11:13:10 2014 vassil_g
-** Last update Thu May 22 12:46:09 2014 vassil_g
+** Last update Sun May 25 22:33:23 2014 vassil_g
 */
 
 #include "mysh.h"
 
 int		main(int argc, char *argv[], char **envp)
 {
+  init_signal();
   mysh(envp);
   return (0);
 }

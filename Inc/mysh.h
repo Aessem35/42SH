@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 12:52:58 2014 vassil_g
-** Last update Sun May 25 20:35:34 2014 vassil_g
+** Last update Sun May 25 22:32:49 2014 vassil_g
 */
 
 #ifndef MYSH_H_
@@ -59,6 +59,7 @@ struct s_token
 ** SRC/MAIN
 */
 void			mysh(char **);
+void			init_signal();
 
 /*
 ** SRC/ENV

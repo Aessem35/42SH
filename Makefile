@@ -5,7 +5,7 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-## Last update Sun May 25 20:14:09 2014 vassil_g
+## Last update Sun May 25 22:33:09 2014 vassil_g
 ##
 
 NAME		= 42sh
@@ -22,6 +22,7 @@ BUILTIN		= $(SRC)Builtin/
 FILE		= $(MAIN)main.c \
 		$(MAIN)42sh.c \
 		$(MAIN)msh_error.c \
+		$(MAIN)signal_handler.c \
 		$(SRC)print_token.c \
 		$(COMMON)free_sh_token.c \
 		$(COMMON)init_linker.c \

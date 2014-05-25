@@ -5,21 +5,19 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue Nov 19 15:28:00 2013 vassil_g
-** Last update Wed May  7 11:49:28 2014 vassil_g
+** Last update Sun May 25 22:41:11 2014 vassil_g
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-
-#define SIZE		4095
 
 int		     fill_buffer(int fd, int *i, int *max, char *buff)
 {
   if (*i != *max)
     return (2);
   *i = 0;
-  *max = read(fd, buff, SIZE);
-  buff[SIZE] = 0;
+  *max = read(fd, buff, 4095);
+  buff[4095] = 0;
   if (*max < 1)
     {
       *max = 0;
@@ -54,7 +52,7 @@ int			lenght(char *str)
   len = 0;
   while (*str && *str != '\n')
     {
-      if (*str >= ' ' && *str <= '~')
+      if ((*str >= ' ' && *str <= '~') || *str == '\t')
 	++len;
       ++str;
     }
@@ -75,7 +73,7 @@ char		 	*init_str(char *buff, int i, int *len, int *n)
 
 char			*get_next_line(const int fd)
 {
-  static char   buff[SIZE + 1];
+  static char   buff[4095 + 1];
   static int    i;
   static int    max;
   int		n;
@@ -88,7 +86,7 @@ char			*get_next_line(const int fd)
     return (NULL);
   while ((buff[i] && buff[i] != '\n'))
     {
-      if (buff[i] >= ' ' && buff[i] <= '~')
+      if ((buff[i] >= ' ' && buff[i] <= '~') || buff[i] == '\t')
 	str[n++] = buff[i];
       if (++i == max)
 	{
