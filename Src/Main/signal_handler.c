@@ -5,13 +5,14 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Sun May 25 22:22:08 2014 vassil_g
-** Last update Sun May 25 22:38:50 2014 vassil_g
+** Last update Sun May 25 22:45:26 2014 vassil_g
 */
 
 #include "signal.h"
 
 void		sig_handler(int sig)
 {
+  (void)(sig);
 }
 
 void		init_signal()

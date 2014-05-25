@@ -5,11 +5,8 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-<<<<<<< HEAD
-## Last update Sun May 25 22:33:09 2014 vassil_g
-=======
+## Last update Sun May 25 22:44:55 2014 vassil_g
 ## Last update Sun May 25 21:57:34 2014 richar_2
->>>>>>> 40121c9cb2a416040472cb8f342695bbd2049e37
 ##
 
 NAME		= 42sh
@@ -68,7 +65,7 @@ FILE		= $(MAIN)main.c \
 OBJ		= $(FILE:.c=.o)
 
 CFLAGS		= -I Inc/
-CFLAGS		+= -Wextra -Wall
+CFLAGS		+= -Wall -Wextra
 
 CC		= gcc
 RM		= rm -vf
