@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:45:45 2014 vassil_g
-** Last update Fri May 23 16:21:02 2014 vassil_g
+** Last update Sun May 25 20:16:37 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -20,7 +20,7 @@ t_token			*remove_node(t_struct_linker *linker, t_token *token)
   if (token == (t_token *)linker->first)
     linker->first = (t_any_struct *)token->next;
   else
-    token->prev->next = token->next;;
+    token->prev->next = token->next;
   if (token == (t_token *)linker->last)
     linker->last = (t_any_struct *)token->prev;
   else

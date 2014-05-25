@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:45:50 2014 vassil_g
-** Last update Fri May 23 10:49:25 2014 vassil_g
+** Last update Sun May 25 20:17:50 2014 vassil_g
 */
 
 #include <string.h>
@@ -45,7 +45,8 @@ t_mysh_er		msh_unsetenv(t_envp *envp, t_sh_token *token)
   envl = envp->envl;
   while (envl)
     {
-      if (strncmp(envl->name, token->up->next->str, strlen(token->up->next->str)) == 0)
+      if (strncmp(envl->name, token->up->next->str,
+		  strlen(token->up->next->str)) == 0)
 	{
 	  if (envl->env_nb == 0)
 	    envp->envl = envp->envl->next;

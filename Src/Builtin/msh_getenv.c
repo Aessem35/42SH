@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:19:30 2014 vassil_g
-** Last update Fri May 23 10:21:01 2014 vassil_g
+** Last update Sun May 25 20:16:52 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -22,7 +22,8 @@ t_mysh_er		msh_getenv(t_envp *envp, t_sh_token *token)
     return (SUCCES);
   while (envl)
     {
-      if (strncmp(envl->name, token->up->next->str, strlen(token->up->next->str)) == 0)
+      if (strncmp(envl->name, token->up->next->str,
+		  strlen(token->up->next->str)) == 0)
 	{
 	  printf("%s\n", envl->name);
 	  return (SUCCES);

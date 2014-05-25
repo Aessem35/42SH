@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:33:47 2014 vassil_g
-** Last update Fri May 23 10:33:48 2014 vassil_g
+** Last update Sun May 25 20:17:05 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -13,7 +13,8 @@
 
 t_mysh_er		setenv_if_set(t_envp *envp, t_envl *envl, t_sh_token *token)
 {
-  if (!(envp->env[envl->env_nb] = append_str_var(token->str, token->next->str, '=')))
+  if (!(envp->env[envl->env_nb] =
+	append_str_var(token->str, token->next->str, '=')))
     return (MA_ERROR);
   free(envl->name);
   envl->name = envp->env[envl->env_nb];
