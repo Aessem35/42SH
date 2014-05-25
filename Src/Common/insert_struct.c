@@ -5,13 +5,13 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 14:49:16 2014 vassil_g
-** Last update Thu May 22 17:35:54 2014 vassil_g
+** Last update Sun May 25 20:19:29 2014 vassil_g
 */
 
 #include <stdlib.h>
 #include "parsing.h"
 
-void			beg_simple_link(t_struct_linker *linker, t_any_struct *any)
+void		beg_simple_link(t_struct_linker *linker, t_any_struct *any)
 {
   if (!(linker->first))
     {
@@ -26,7 +26,7 @@ void			beg_simple_link(t_struct_linker *linker, t_any_struct *any)
   ++linker->size;
 }
 
-void			beg_double_link(t_struct_linker *linker, t_any_struct *any)
+void		beg_double_link(t_struct_linker *linker, t_any_struct *any)
 {
   if (!(linker->first))
     {
@@ -42,7 +42,7 @@ void			beg_double_link(t_struct_linker *linker, t_any_struct *any)
  ++linker->size;
 }
 
-void			end_simple_link(t_struct_linker *linker, t_any_struct *any)
+void	       end_simple_link(t_struct_linker *linker, t_any_struct *any)
 {
   if (!(linker->first))
     {
@@ -57,7 +57,7 @@ void			end_simple_link(t_struct_linker *linker, t_any_struct *any)
  ++linker->size;
 }
 
-void			end_double_link(t_struct_linker *linker, t_any_struct *any)
+void		end_double_link(t_struct_linker *linker, t_any_struct *any)
 {
   if (!(linker->first))
     {
@@ -73,7 +73,8 @@ void			end_double_link(t_struct_linker *linker, t_any_struct *any)
   ++linker->size;
 }
 
-t_uint32		insert_struct(t_struct_linker *linker, t_any_struct *any, t_uint32 mode)
+t_uint32	insert_struct(t_struct_linker *linker,
+			      t_any_struct *any, t_uint32 mode)
 {
   if (!(any))
     return (0);

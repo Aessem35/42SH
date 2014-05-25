@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 15:59:09 2014 vassil_g
-** Last update Thu May 22 16:22:38 2014 vassil_g
+** Last update Sun May 25 20:20:56 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -42,7 +42,8 @@ t_uint32        find_sep(char *sep, char str)
   return (j);
 }
 
-t_token			*parse_string(t_struct_linker *linker, char *str, char *sep, t_uint32 mode)
+t_token			*parse_string(t_struct_linker *linker, char *str,
+				      char *sep, t_uint32 mode)
 {
   char			*beg;
   t_uint32		j;
@@ -55,7 +56,8 @@ t_token			*parse_string(t_struct_linker *linker, char *str, char *sep, t_uint32 
       j = find_sep(sep, str[i]);
       if (beg && sep[j])
         {
-          if (!(insert_struct(linker, (t_any_struct *)token_in_range(beg, &(str[i])), mode)))
+          if (!(insert_struct
+		(linker, (t_any_struct *)token_in_range(beg, &(str[i])), mode)))
             return (NULL);
           beg = NULL;
         }
@@ -68,7 +70,8 @@ t_token			*parse_string(t_struct_linker *linker, char *str, char *sep, t_uint32 
   return ((t_token *)linker->first);
 }
 
-t_token			*tokenize(t_struct_linker *linker, char *str, char *sep, t_uint32 mode)
+t_token			*tokenize(t_struct_linker *linker, char *str,
+				  char *sep, t_uint32 mode)
 {
   t_struct_linker	if_null;
 
