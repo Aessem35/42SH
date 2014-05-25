@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Sun May 25 17:02:24 2014 vassil_g
-** Last update Sun May 25 17:05:12 2014 vassil_g
+** Last update Sun May 25 23:40:36 2014 vassil_g
 */
 
 char			*getnext_c(char *str, char c)

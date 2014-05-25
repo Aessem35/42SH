@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Tue May 20 15:16:17 2014 vassil_g
-** Last update Sun May 25 23:28:14 2014 vassil_g
+** Last update Sun May 25 23:40:09 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -40,7 +40,7 @@ t_uint32	case_quote(t_struct_linker *linker, char *str)
   if (!str[i])
     return (1);
   insert(linker, str, &str[i]);
-  return (i + i);
+  return (i + 1);
 }
 
 t_uint32	tokenize_param(t_struct_linker *linker, char *str, char *sep)
@@ -57,7 +57,7 @@ t_uint32	tokenize_param(t_struct_linker *linker, char *str, char *sep)
 	{
 	  if (beg)
 	    beg = insert(linker, beg, &(str[i]));
-	  i += case_quote(linker, &str[i + 1]);
+	  i += case_quote(linker, &str[i + 1]) + 1;
 	  continue;
 	}
       j = get_sep(sep, str[i]);
