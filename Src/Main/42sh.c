@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Wed May 21 13:01:09 2014 vassil_g
-** Last update Sun May 25 20:24:35 2014 vassil_g
+** Last update Sun May 25 23:00:23 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -33,7 +33,7 @@ t_lexic			*init_lex_def(t_lexic *lex)
   if (!(lex[0].string = strdup(P_OR_S)))
     return (NULL);
   lex[0].flag = P_OR_F;
-  if (!(lex[6].string = strdup("P_AND_S")))
+  if (!(lex[6].string = strdup(P_AND_S)))
     return (NULL);
   lex[6].flag = P_AND_F;
   if (!(lex[7].string = strdup(P_SCOL_S)))
@@ -68,6 +68,7 @@ void			mysh(char **env)
   while (42)
     {
       token = parsed_entry(&def);
+      print_token(token);
       if (token && token->up)
 	process_entry(token, &envp);
       free_sh_token(token);

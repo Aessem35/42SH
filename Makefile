@@ -5,7 +5,7 @@
 ## Login   <vassil_g@epitech.net>
 ## 
 ## Started on  Thu May 22 18:11:44 2014 vassil_g
-## Last update Sun May 25 22:44:55 2014 vassil_g
+## Last update Sun May 25 23:04:17 2014 vassil_g
 ## Last update Sun May 25 21:57:34 2014 richar_2
 ##
 
@@ -24,7 +24,6 @@ FILE		= $(MAIN)main.c \
 		$(MAIN)42sh.c \
 		$(MAIN)msh_error.c \
 		$(MAIN)signal_handler.c \
-		$(SRC)print_token.c \
 		$(COMMON)free_sh_token.c \
 		$(COMMON)init_linker.c \
 		$(COMMON)insert_struct.c \
