@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Mon Feb  3 11:52:09 2014 vassil_g
-** Last update Sun May 25 19:05:30 2014 vassil_g
+** Last update Wed May 28 10:19:37 2014 vassil_g
 */
 
 #include "mysh.h"
@@ -26,6 +26,7 @@ t_mysh_er    msh_builtin(t_struct_linker *job_list, t_int32 w_builtin,
   t_mysh_er	(*func[6])(t_envp *envp, t_sh_token *token);
   t_uint32	ret;
 
+  ret = 0;
   init_builtin(func);
   if (w_builtin == BUILTIN_CLEAR)
     msh_clear();

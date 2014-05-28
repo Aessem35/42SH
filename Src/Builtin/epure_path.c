@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:45:45 2014 vassil_g
-** Last update Sun May 25 20:16:37 2014 vassil_g
+** Last update Wed May 28 10:33:48 2014 vassil_g
 */
 
 #include <stdlib.h>
@@ -93,7 +93,7 @@ char			*epure_path(char *path)
 
   init_linker(&linker);
   if (!(tokenize(&linker, path, "/", DOUBLE | END)))
-    return (NULL);
+    return (path);
   clean_path(&linker);
   ret = rebuild_path(&linker);
   free_token((t_token *)linker.first);

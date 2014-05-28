@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Fri May 23 10:54:04 2014 vassil_g
-** Last update Fri May 23 16:18:24 2014 vassil_g
+** Last update Wed May 28 10:34:08 2014 vassil_g
 */
 
 #include <unistd.h>
@@ -101,7 +101,7 @@ t_mysh_er		msh_cd(t_envp *envp, t_sh_token *token)
       free(pwd);
       return (BI_CD_INVAFOLDER);
     }
-  else if (!(pwd = epure_path(pwd)))
+  if (!(pwd = epure_path(pwd)))
     return (MA_ERROR);
   return (cd_setenv(envp, pwd));
 }

@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 11:21:53 2014 vassil_g
-** Last update Thu May 22 11:25:40 2014 vassil_g
+** Last update Wed May 28 10:16:41 2014 vassil_g
 */
 
 #ifndef MSH_ER_H__
@@ -36,7 +36,7 @@
 /*
 ** ERROR MSG
 */
-# define MA_ERROR_MSG		"Memory allocation error, you should free memory or behavior of the program will be undefined\n"
+# define MA_ERROR_MSG		"Memory allocation error\n"
 # define ESTWT_MA_ERROR_MSG	"ESTWT memory allocation error, you should free memory or behavior of the program will be undefined\n"
 # define STWT_MA_ERROR_MSG	"STWT memory allocation error, you should free memory or behavior of the program will be undefined\n"
 

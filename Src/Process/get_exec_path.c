@@ -5,7 +5,7 @@
 ** Login   <vassil_g@epitech.net>
 ** 
 ** Started on  Thu May 22 16:42:49 2014 vassil_g
-** Last update Sun May 25 20:29:55 2014 vassil_g
+** Last update Wed May 28 10:31:26 2014 vassil_g
 */
 
 #include <sys/types.h>
@@ -54,7 +54,11 @@ t_mysh_er		check_exec(t_envp *envp, t_sh_token *entry)
 
 t_mysh_er	       	get_exec_path(t_envp *envp, t_sh_token *token)
 {
+  struct stat	buff;
+
   if (!token || !token->up || !token->up->str)
     return (EXEC_NF);
+  if (stat((token->up->str), &buff) == 0)
+    return (SUCCES);
   return (check_exec(envp, token));
 }
